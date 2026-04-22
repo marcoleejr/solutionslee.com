@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #ffffff;
+  --foreground: #18181b;
+  --surface: #f4f4f5;
+  --border: #e4e4e7;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --muted: #71717a;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --surface: #111111;
+  --border: #222222;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --muted: #a1a1aa;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* GitHub Calendar Customization */
+.react-activity-calendar {
+  --activity-calendar-level-0: var(--border);
+  --activity-calendar-level-1: #0e4429;
+  --activity-calendar-level-2: #006d32;
+  --activity-calendar-level-3: #26a641;
+  --activity-calendar-level-4: #39d353;
+}
+
+.dark .react-activity-calendar {
+  --activity-calendar-level-0: #222222;
+  --activity-calendar-level-1: #0e4429;
+  --activity-calendar-level-2: #006d32;
+  --activity-calendar-level-3: #26a641;
+  --activity-calendar-level-4: #39d353;
 }
