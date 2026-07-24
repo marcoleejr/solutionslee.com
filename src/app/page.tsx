@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <AsciiIntro onComplete={handleIntroComplete} />
-      <main className="max-w-3xl mx-auto px-4 sm:px-6">
+      <main className="w-full max-w-3xl mx-auto px-4 sm:px-6 min-w-0 box-border">
         <Hero />
         <GitHubCalendarSection />
         <Experience />

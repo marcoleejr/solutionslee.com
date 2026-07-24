@@ -54,30 +54,30 @@ export function Hero() {
   };
 
   return (
-    <section className="py-16 sm:py-24 md:py-32">
+    <section className="py-10 sm:py-20 md:py-28 w-full">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col items-start gap-6 sm:gap-8"
+        className="flex flex-col items-start gap-5 sm:gap-8 w-full min-w-0"
       >
         {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-surface border-2 border-border flex items-center justify-center overflow-hidden"
+          className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-surface border-2 border-border flex items-center justify-center overflow-hidden shrink-0"
         >
-          <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent">ML</span>
+          <span className="text-xl sm:text-3xl md:text-4xl font-bold text-accent">ML</span>
         </motion.div>
 
         {/* Name & Title */}
-        <div className="space-y-1 sm:space-y-2">
+        <div className="space-y-1.5 sm:space-y-2 w-full min-w-0">
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground break-words"
           >
             {t.hero.name}
           </motion.h1>
@@ -85,7 +85,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg sm:text-xl md:text-2xl text-muted font-normal"
+            className="text-base sm:text-xl md:text-2xl text-muted font-normal break-words"
           >
             {t.hero.title}
           </motion.h2>
@@ -93,7 +93,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
-            className="text-sm sm:text-base text-accent font-medium"
+            className="text-sm sm:text-base text-accent font-medium break-words"
           >
             {t.hero.stack}
           </motion.p>
@@ -101,10 +101,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-muted"
+            className="flex items-start gap-1.5 text-xs sm:text-sm text-muted break-words"
           >
-            <MapPin className="w-3.5 h-3.5" />
-            {t.hero.location}
+            <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+            <span>{t.hero.location}</span>
           </motion.p>
         </div>
 
@@ -113,7 +113,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-sm sm:text-base md:text-lg text-muted leading-relaxed max-w-2xl"
+          className="text-sm sm:text-base md:text-lg text-muted leading-relaxed w-full max-w-2xl break-words"
         >
           {t.hero.bio}
         </motion.p>
@@ -123,30 +123,31 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="space-y-3 sm:space-y-4 w-full"
+          className="space-y-3 sm:space-y-4 w-full min-w-0"
         >
           <p className="text-xs sm:text-sm text-muted">{t.hero.contact}</p>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-3 py-2 sm:px-4 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200 text-xs sm:text-sm text-foreground ${link.color}`}
+          <div className="flex flex-col xs:flex-row flex-wrap gap-2 sm:gap-3 w-full">
+            <div className="flex flex-wrap gap-2 w-full">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center gap-2 min-h-11 px-3 py-2.5 sm:px-4 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200 text-sm text-foreground ${link.color}`}
+                >
+                  <link.icon />
+                  {link.label}
+                </a>
+              ))}
+              <button
+                onClick={handleCopyEmail}
+                className="inline-flex items-center justify-center gap-2 min-h-11 px-3 py-2.5 sm:px-4 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200 text-sm text-foreground max-w-full"
               >
-                <link.icon />
-                {link.label}
-              </a>
-            ))}
-            {/* Email button with copy */}
-            <button
-              onClick={handleCopyEmail}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200 text-xs sm:text-sm text-foreground"
-            >
-              {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-              {copied ? t.hero.copied : "marco@solutionslee.com"}
-            </button>
+                {copied ? <Check className="w-4 h-4 text-green-500 shrink-0" /> : <Copy className="w-4 h-4 shrink-0" />}
+                <span className="truncate">{copied ? t.hero.copied : "marco@solutionslee.com"}</span>
+              </button>
+            </div>
           </div>
         </motion.div>
 
