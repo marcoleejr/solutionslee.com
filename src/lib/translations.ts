@@ -9,6 +9,7 @@ export const translations = {
       bio: "Senior full-stack engineer with 12+ years shipping production web platforms — from high-traffic WordPress portals serving millions of users across Latin America to modern Laravel and React/Next.js products. I lead teams, own architecture end to end, and build applied AI features (agents, RAG) that solve real business problems.",
       location: "Guatemala (UTC-6) · English C1 · Remote",
       contact: "You can reach me here:",
+      copied: "Copied",
     },
     github: {
       title: "GitHub Contributions",
@@ -110,6 +111,7 @@ export const translations = {
       bio: "Ingeniero full-stack senior con más de 12 años construyendo plataformas web en producción — desde portales WordPress de alto tráfico con millones de usuarios en Latinoamérica hasta productos modernos con Laravel y React/Next.js. Lidero equipos, soy dueño de la arquitectura de punta a punta y construyo funciones de IA aplicada (agentes, RAG) que resuelven problemas reales de negocio.",
       location: "Guatemala (UTC-6) · Inglés C1 · Remoto",
       contact: "Puedes contactarme aquí:",
+      copied: "Copiado",
     },
     github: {
       title: "Contribuciones en GitHub",
@@ -144,7 +146,7 @@ export const translations = {
         {
           title: "Desarrollador Web",
           company: "XYZ Network Inc",
-          period: "Jan 2014 — Sep 2015",
+          period: "Ene 2014 — Sep 2015",
           description:
             "Entrega LAMP/WordPress de alto tráfico para marcas como Star Media y propiedades relacionadas. Frontend y backend en producción.",
         },

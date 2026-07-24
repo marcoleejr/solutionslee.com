@@ -1,17 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
 import { useLanguage } from "@/lib/language-context";
+import { useMounted } from "@/lib/use-mounted";
 
 export function GitHubCalendarSection() {
   const { t, lang } = useLanguage();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   return (
     <motion.section

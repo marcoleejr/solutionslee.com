@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback } from "react";
 import { Hero } from "./sections/Hero";
 import { GitHubCalendarSection } from "./sections/GitHubCalendar";
 import { Experience } from "./sections/Experience";
@@ -10,11 +10,13 @@ import { Footer } from "./sections/Footer";
 import { AsciiIntro } from "@/components/AsciiIntro";
 
 export default function Home() {
-  const [introComplete, setIntroComplete] = useState(false);
+  const handleIntroComplete = useCallback(() => {
+    // Intro overlay dismissed; no further gating needed.
+  }, []);
 
   return (
     <>
-      <AsciiIntro onComplete={() => setIntroComplete(true)} />
+      <AsciiIntro onComplete={handleIntroComplete} />
       <main className="max-w-3xl mx-auto px-4 sm:px-6">
         <Hero />
         <GitHubCalendarSection />

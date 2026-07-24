@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMounted } from "@/lib/use-mounted";
 
 const ASCII_ART = [
   "  __  __            _       _      ",
@@ -18,15 +19,10 @@ const ASCII_ART = [
 ];
 
 export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
-  // Avoid SSR/client HTML mismatch (React #418): render only after mount.
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const [visible, setVisible] = useState(true);
   const [lines, setLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!mounted) return;

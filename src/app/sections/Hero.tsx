@@ -145,7 +145,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200 text-xs sm:text-sm text-foreground"
             >
               {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-              {copied ? "Copied" : "marco@solutionslee.com"}
+              {copied ? t.hero.copied : "marco@solutionslee.com"}
             </button>
           </div>
         </motion.div>
