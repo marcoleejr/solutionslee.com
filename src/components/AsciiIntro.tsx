@@ -1,43 +1,64 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMounted } from "@/lib/use-mounted";
 
-const NAME = "MARCO LEE";
-const TAGLINE = "Senior Full-Stack Engineer";
+// Figlet-style "Marco" + "Lee" — correct single backslashes, compact width.
+const ASCII_ART = [
+  " __  __                      ",
+  "|  \\/  | __ _ _ __ ___ ___   ",
+  "| |\\/| |/ _` | '__/ __/ _ \\  ",
+  "| |  | | (_| | | | (_| (_) | ",
+  "|_|  |_|\\__,_|_|  \\___\\___/  ",
+  "                             ",
+  " _                           ",
+  "| |    ___  ___              ",
+  "| |   / _ \\/ _ \\             ",
+  "| |__|  __/  __/             ",
+  "|_____\\___|\\___|             ",
+] as const;
 
 export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
   const mounted = useMounted();
   const [visible, setVisible] = useState(true);
-  const [nameChars, setNameChars] = useState(0);
-  const [showTagline, setShowTagline] = useState(false);
-  const [doneTyping, setDoneTyping] = useState(false);
+  const [lines, setLines] = useState<string[]>([]);
+  const [currentLine, setCurrentLine] = useState(0);
+  const [scale, setScale] = useState(1);
+  const measureRef = useRef<HTMLPreElement>(null);
+
+  // Fit ASCII block to viewport width (readable on phone without tiny font).
+  useEffect(() => {
+    if (!mounted) return;
+    const fit = () => {
+      const el = measureRef.current;
+      if (!el) return;
+      const pad = 32;
+      const avail = Math.max(280, window.innerWidth - pad);
+      const natural = el.scrollWidth || el.offsetWidth || 1;
+      const next = Math.min(1.15, Math.max(0.55, avail / natural));
+      setScale(next);
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, [mounted, lines.length]);
 
   useEffect(() => {
     if (!mounted) return;
-
-    if (nameChars < NAME.length) {
-      const timer = setTimeout(() => setNameChars((n) => n + 1), 70);
+    if (currentLine < ASCII_ART.length) {
+      const timer = setTimeout(() => {
+        setLines((prev) => [...prev, ASCII_ART[currentLine]]);
+        setCurrentLine((prev) => prev + 1);
+      }, 90);
       return () => clearTimeout(timer);
     }
-
-    if (!showTagline) {
-      const timer = setTimeout(() => setShowTagline(true), 220);
-      return () => clearTimeout(timer);
-    }
-
-    if (!doneTyping) {
-      const timer = setTimeout(() => setDoneTyping(true), 900);
-      return () => clearTimeout(timer);
-    }
-
     const timer = setTimeout(() => {
       setVisible(false);
       onComplete();
-    }, 450);
+    }, 900);
     return () => clearTimeout(timer);
-  }, [mounted, nameChars, showTagline, doneTyping, onComplete]);
+  }, [mounted, currentLine, onComplete]);
 
   if (!mounted) return null;
 
@@ -48,34 +69,42 @@ export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background px-6"
-          aria-hidden
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background px-4 overflow-hidden"
+          aria-label="Marco Lee"
         >
-          <div className="text-center max-w-lg w-full">
-            <p className="font-mono text-3xl sm:text-5xl md:text-6xl font-bold tracking-[0.12em] text-accent tabular-nums">
-              {NAME.slice(0, nameChars)}
-              <motion.span
-                animate={{ opacity: doneTyping ? 0 : [1, 0] }}
-                transition={{
-                  repeat: doneTyping ? 0 : Infinity,
-                  duration: 0.55,
-                }}
-                className="inline-block w-[0.08em] h-[0.9em] ml-1 align-[-0.05em] bg-accent"
-              />
-            </p>
+          {/* Hidden full art for measuring natural width at base font size */}
+          <pre
+            ref={measureRef}
+            aria-hidden
+            className="pointer-events-none absolute opacity-0 font-mono text-sm sm:text-base leading-[1.15] whitespace-pre"
+          >
+            {ASCII_ART.join("\n")}
+          </pre>
 
-            <AnimatePresence>
-              {showTagline && (
-                <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35 }}
-                  className="mt-4 text-sm sm:text-base text-muted tracking-wide"
+          <div
+            className="origin-center will-change-transform"
+            style={{ transform: `scale(${scale})` }}
+          >
+            <pre className="font-mono text-sm sm:text-base leading-[1.15] text-accent whitespace-pre select-none drop-shadow-[0_0_24px_color-mix(in_srgb,var(--accent)_35%,transparent)]">
+              {lines.map((line, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, x: -6 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.15 }}
+                  className="block"
                 >
-                  {TAGLINE}
-                </motion.p>
+                  {line}
+                </motion.span>
+              ))}
+              {currentLine < ASCII_ART.length && (
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ repeat: Infinity, duration: 0.5 }}
+                  className="inline-block w-2 h-4 ml-0.5 align-middle bg-accent"
+                />
               )}
-            </AnimatePresence>
+            </pre>
           </div>
         </motion.div>
       )}
