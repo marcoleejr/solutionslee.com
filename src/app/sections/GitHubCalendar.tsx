@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
+import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
 import { useMounted } from "@/lib/use-mounted";
 
@@ -54,9 +55,7 @@ export function GitHubCalendarSection() {
       transition={{ duration: 0.5 }}
       className="py-10 sm:py-16"
     >
-      <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-foreground">
-        {t.github.title}
-      </h3>
+      <SectionHeading title={t.github.title} subtitle={t.github.subtitle} />
       <div className="gh-calendar-wrap rounded-xl border border-border p-3 sm:p-6 bg-surface min-h-[120px] sm:min-h-[160px]">
         {mounted ? (
           <GitHubCalendar {...calendarProps} />
