@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Globe, MessageSquare, AtSign, Mail, Copy, Check } from "lucide-react";
+import { MapPin, Copy, Check } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLanguage } from "@/lib/language-context";
@@ -20,16 +20,9 @@ const LinkedInLogo = () => (
   </svg>
 );
 
-const TwitterLogo = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
-
 const socialLinks = [
   { icon: GitHubLogo, label: "GitHub", href: "https://github.com/marcoleejr", color: "hover:text-white" },
   { icon: LinkedInLogo, label: "LinkedIn", href: "https://linkedin.com/in/marcoleejr", color: "hover:text-[#0A66C2]" },
-  { icon: TwitterLogo, label: "Twitter", href: "https://x.com/marcoleejr", color: "hover:text-white" },
 ];
 
 // Email obfuscado anti-spam
@@ -96,13 +89,30 @@ export function Hero() {
           >
             {t.hero.title}
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="text-sm sm:text-base text-accent font-medium"
+          >
+            {t.hero.stack}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-muted"
+          >
+            <MapPin className="w-3.5 h-3.5" />
+            {t.hero.location}
+          </motion.p>
         </div>
 
         {/* Bio */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="text-sm sm:text-base md:text-lg text-muted leading-relaxed max-w-2xl"
         >
           {t.hero.bio}
@@ -112,7 +122,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
           className="space-y-3 sm:space-y-4 w-full"
         >
           <p className="text-xs sm:text-sm text-muted">{t.hero.contact}</p>
@@ -135,7 +145,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200 text-xs sm:text-sm text-foreground"
             >
               {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-              {copied ? "Copiado" : "marco@solutionslee.com"}
+              {copied ? "Copied" : "marco@solutionslee.com"}
             </button>
           </div>
         </motion.div>
@@ -144,7 +154,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
           className="flex gap-2 sm:gap-3"
         >
           <ThemeToggle />

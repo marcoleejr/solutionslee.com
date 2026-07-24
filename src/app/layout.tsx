@@ -15,13 +15,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Marco Lee | Full Stack Developer",
-  description: "Full Stack Developer & Ingeniero Industrial. Especializado en crear aplicaciones web limpias, escalables y bien pensadas.",
-  keywords: ["Marco Lee", "Full Stack Developer", "React", "Next.js", "Node.js", "TypeScript"],
+  title: "Marco Lee | Senior Full-Stack Engineer",
+  description:
+    "Senior Full-Stack Engineer — Laravel · React/Next.js · WordPress · Applied AI. 12+ years building production web platforms. Based in Guatemala (UTC-6), English C1, remote.",
+  keywords: [
+    "Marco Lee",
+    "Senior Full-Stack Engineer",
+    "Laravel",
+    "React",
+    "Next.js",
+    "WordPress",
+    "Applied AI",
+    "TypeScript",
+  ],
   authors: [{ name: "Marco Lee" }],
   openGraph: {
-    title: "Marco Lee | Full Stack Developer",
-    description: "Full Stack Developer & Ingeniero Industrial. 12+ años de experiencia.",
+    title: "Marco Lee | Senior Full-Stack Engineer",
+    description:
+      "Senior Full-Stack Engineer — Laravel · React/Next.js · WordPress · Applied AI. 12+ years of experience.",
     type: "website",
   },
 };
@@ -33,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >

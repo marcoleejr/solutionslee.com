@@ -5,38 +5,46 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const ASCII_ART = [
   "  __  __            _       _      ",
-  " |  \/  | __ _  ___| | __  | |     ",
-  " | |\/| |/ _` |/ __| |/ /  | |     ",
+  " |  \\/  | __ _  ___| | __  | |     ",
+  " | |\\/| |/ _` |/ __| |/ /  | |     ",
   " | |  | | (_| | (__|   <   | |___  ",
-  " |_|  |_|\__,_|\___|_|\_\  |_____| ",
+  " |_|  |_|\\__,_|\\___|_|\\_\\  |_____| ",
   "                                   ",
   "  ____  _          _ _            ",
-  " |  _ \(_) ___  __| (_) __ _      ",
-  " | |_) | |/ _ \/ _` | |/ _` |     ",
+  " |  _ \\(_) ___  __| (_) __ _      ",
+  " | |_) | |/ _ \\/ _` | |/ _` |     ",
   " |  _ <| |  __/ (_| | | (_| |     ",
-  " |_| \_\_|\___|\__,_|_|\__,_|     ",
+  " |_| \\_\\_|\\___|\\__,_|_|\\__,_|     ",
 ];
 
 export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
+  // Avoid SSR/client HTML mismatch (React #418): render only after mount.
+  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lines, setLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     if (currentLine < ASCII_ART.length) {
       const timer = setTimeout(() => {
         setLines((prev) => [...prev, ASCII_ART[currentLine]]);
         setCurrentLine((prev) => prev + 1);
-      }, 150);
-      return () => clearTimeout(timer);
-    } else {
-      const timer = setTimeout(() => {
-        setVisible(false);
-        onComplete();
-      }, 800);
+      }, 120);
       return () => clearTimeout(timer);
     }
-  }, [currentLine, onComplete]);
+    const timer = setTimeout(() => {
+      setVisible(false);
+      onComplete();
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [mounted, currentLine, onComplete]);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>
@@ -44,7 +52,7 @@ export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-background"
         >
           <div className="font-mono text-xs sm:text-sm md:text-base text-accent">
