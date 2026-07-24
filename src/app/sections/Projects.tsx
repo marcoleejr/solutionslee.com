@@ -22,10 +22,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 0 }}
+      // Opacity-only, no y-shift — avoids jump. Start near-visible to kill flash.
+      initial={reduceMotion ? false : { opacity: 0.01 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2, margin: "0px" }}
-      transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.05 }}
+      viewport={{ once: true, amount: 0.15, margin: "40px 0px" }}
+      transition={{ duration: 0.28, ease: "easeOut", delay: index * 0.04 }}
       className="group relative rounded-xl border border-border bg-surface p-4 sm:p-6 transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_8px_30px_color-mix(in_srgb,var(--accent)_12%,transparent)] flex flex-col"
     >
       <div className="flex items-start gap-3 mb-3 sm:mb-4">
