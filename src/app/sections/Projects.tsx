@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Folder, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink, Folder } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import Image from "next/image";
 
@@ -16,7 +15,6 @@ interface Project {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const [expanded, setExpanded] = useState(false);
   const { t } = useLanguage();
 
   return (

@@ -1,14 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, MessageSquare, AtSign, Mail } from "lucide-react";
+import { Globe, MessageSquare, Mail } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
 const socialLinks = [
   { icon: Globe, label: "GitHub", href: "https://github.com/marcoleejr" },
   { icon: MessageSquare, label: "LinkedIn", href: "https://linkedin.com/in/marcoleejr" },
-  { icon: AtSign, label: "Twitter", href: "https://x.com/marcoleejr" },
-  { icon: Mail, label: "Email", href: "mailto:mv.lee18@gmail.com" },
+  { icon: Mail, label: "Email", href: "mailto:marco@solutionslee.com" },
 ];
 
 export function Footer() {

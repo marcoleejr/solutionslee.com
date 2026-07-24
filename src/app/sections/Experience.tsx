@@ -85,7 +85,7 @@ export function Experience() {
       </motion.h3>
       <div className="flex flex-col gap-4">
         {t.experience.jobs.map((job, index) => (
-          <ExperienceCard key={job.title} job={job} index={index} />
+          <ExperienceCard key={`${job.company}-${job.period}-${job.title}`} job={job} index={index} />
         ))}
       </div>
     </section>

@@ -1,135 +1,15 @@
-export type Lang = "es" | "en";
+export type Lang = "en" | "es";
 
 export const translations = {
-  es: {
-    hero: {
-      name: "Marco Lee",
-      title: "Full Stack Developer & Ingeniero Industrial",
-      bio: "Me especializo en crear aplicaciones web limpias, escalables y bien pensadas. Con 12+ años de experiencia, combino lo técnico con la visión de negocio para construir productos que generan resultados.",
-      contact: "Puedes contactarme aquí:",
-    },
-    github: {
-      title: "Contribuciones en GitHub",
-    },
-    experience: {
-      title: "Experiencia",
-      present: "Presente",
-      viewMore: "Ver más",
-      viewLess: "Ver menos",
-      jobs: [
-        {
-          title: "Coordinador de Tecnología y Desarrollo",
-          company: "Empresa Actual",
-          period: "2023 — Presente",
-          description: "Lidero el desarrollo de soluciones tecnológicas, gestionando equipos y arquitectura de software. Stack principal: React, Node.js, PostgreSQL. Trabajo 100% remoto.",
-        },
-        {
-          title: "Full Stack Developer & Freelance",
-          company: "Independiente",
-          period: "2020 — Presente",
-          description: "Desarrollo de proyectos propios y para clientes. Más de 8 propiedades web generando ingresos pasivos mediante AdSense, cursos online y servicios freelance.",
-        },
-        {
-          title: "Sistema POS HyM",
-          company: "Distribuidora HyM — Salama, Baja Verapaz",
-          period: "2018",
-          description: "Desarrollo completo de punto de venta web con Laravel. Incluye escáner QR, gestión de inventario, control de stock, facturación y reportes de ventas para distribuidora en Guatemala.",
-        },
-        {
-          title: "Propietario",
-          company: "Single's Bar",
-          period: "2019 — Presente",
-          description: "50% propietario de bar en Puerto Barrios, Guatemala. Gestión operativa, marketing digital y desarrollo de la web singlesbar.net con Astro y Tailwind.",
-        },
-      ],
-    },
-    projects: {
-      title: "Proyectos",
-      viewDetails: "Ver detalles",
-      hideDetails: "Ocultar detalles",
-      github: "Github",
-      demo: "Demo",
-      items: [
-        {
-          name: "agente-ia.dev",
-          description: "Plataforma de cursos sobre agentes de IA. Construida con Next.js, Turso DB y Lemon Squeezy para pagos.",
-          tags: ["Next.js", "Turso", "Lemon Squeezy"],
-          github: null,
-          demo: "https://agente-ia.dev",
-          logo: null,
-        },
-        {
-          name: "gaminglab.dev",
-          description: "Portal de juegos browser con soporte para 6 idiomas. Monetizado con AdSense y validado para anuncios.",
-          tags: ["Next.js", "AdSense", "i18n"],
-          github: null,
-          demo: "https://gaminglab.dev",
-          logo: null,
-        },
-        {
-          name: "calcufast.com",
-          description: "Suite de calculadoras online. Construido con Next.js para rendimiento y SEO.",
-          tags: ["Next.js", "Calculadoras", "SEO"],
-          github: null,
-          demo: "https://calcufast.com",
-          logo: null,
-        },
-        {
-          name: "singlesbar.net",
-          description: "Web del Single's Bar. Construida con Astro y Tailwind CSS para máxima velocidad.",
-          tags: ["Astro", "Tailwind"],
-          github: null,
-          demo: "https://singlesbar.net",
-          logo: null,
-        },
-        {
-          name: "mundo.com",
-          description: "Portal de noticias y curiosidades con alto tráfico latinoamericano. WordPress optimizado para alta carga de usuarios recurrentes.",
-          tags: ["WordPress", "PHP", "Alto Tráfico"],
-          github: null,
-          demo: "https://mundo.com",
-          logo: "https://www.mundo.com/public/img/logox2.png",
-        },
-        {
-          name: "noticias.com",
-          description: "Agregador de noticias mundiales con contenido actualizado 24/7. Plataforma de alto tráfico con usuarios recurrentes.",
-          tags: ["WordPress", "PHP", "News"],
-          github: null,
-          demo: "https://noticias.com",
-          logo: "https://ecdn4.wn.com/or/assets/assets/wn/img/logo.png",
-        },
-        {
-          name: "starmedia.com",
-          description: "Portal de noticias y entretenimiento. WordPress con alto tráfico latinoamericano y múltiples categorías de contenido.",
-          tags: ["WordPress", "PHP", "Entretenimiento"],
-          github: null,
-          demo: "https://starmedia.com",
-          logo: null,
-        },
-        {
-          name: "honduras.com",
-          description: "Portal informativo de Honduras con alta carga de tráfico. WordPress optimizado para rendimiento y usuarios recurrentes.",
-          tags: ["WordPress", "PHP", "Alto Tráfico"],
-          github: null,
-          demo: "https://honduras.com",
-          logo: null,
-        },
-      ],
-    },
-    skills: {
-      title: "Habilidades y Herramientas",
-    },
-    footer: {
-      builtWith: "Construido con Next.js + Tailwind",
-      copyright: "© 2026 Marco Lee",
-    },
-  },
   en: {
     hero: {
       name: "Marco Lee",
-      title: "Full Stack Developer & Industrial Engineer",
-      bio: "I specialize in creating clean, scalable, and well-thought-out web applications. With 12+ years of experience, I combine technical expertise with business vision to build products that deliver results.",
+      title: "Senior Full-Stack Engineer",
+      stack: "Laravel · React/Next.js · WordPress · Applied AI",
+      bio: "Senior full-stack engineer with 12+ years shipping production web platforms — from high-traffic WordPress portals serving millions of users across Latin America to modern Laravel and React/Next.js products. I lead teams, own architecture end to end, and build applied AI features (agents, RAG) that solve real business problems.",
+      location: "Guatemala (UTC-6) · English C1 · Remote",
       contact: "You can reach me here:",
+      copied: "Copied",
     },
     github: {
       title: "GitHub Contributions",
@@ -141,100 +21,76 @@ export const translations = {
       viewLess: "View less",
       jobs: [
         {
-          title: "Technology & Development Coordinator",
-          company: "Current Company",
-          period: "2023 — Present",
-          description: "Leading technology solution development, managing teams and software architecture. Main stack: React, Node.js, PostgreSQL. 100% remote work.",
+          title: "Technology & Development Coordinator / Tech Lead",
+          company: "Guatemala.com",
+          period: "Jun 2020 — Mar 2026",
+          description:
+            "Led architecture and delivery for high-traffic content platforms (5M+ monthly users) on auto-scalable AWS. Migration toward headless WordPress + NestJS + Next.js, ad systems, performance, and mentoring. Applied AI-assisted engineering workflows across the team. Fully remote.",
         },
         {
-          title: "Full Stack Developer & Freelance",
-          company: "Independent",
-          period: "2020 — Present",
-          description: "Development of personal projects and client work. 8+ web properties generating passive income through AdSense, online courses, and freelance services.",
+          title: "Full-Stack Developer",
+          company: "Guatemala.com",
+          period: "Sep 2015 — Jun 2020",
+          description:
+            "Built and maintained React/JavaScript frontends and Laravel REST APIs for multi-brand media properties. Web + hybrid mobile delivery, high-traffic LAMP/WordPress systems, and continuous product shipping under agency/media scale.",
         },
         {
-          title: "POS System HyM",
-          company: "Distribuidora HyM — Salama, Baja Verapaz",
-          period: "2018",
-          description: "Complete web-based POS system development with Laravel. Includes QR scanner, inventory management, stock control, invoicing, and sales reports for a Guatemalan distributor.",
+          title: "Founder & Product Engineer",
+          company: "Independent Products",
+          period: "2018 — Present",
+          description:
+            "Design, build, and operate my own portfolio of web products — calcufast.com, gaminglab.dev, singlesbar.net, agente-ia.dev — covering SEO tools, browser games (6-language i18n), and applied AI systems. Full lifecycle: Next.js/Laravel, AdSense monetization, AWS/Vercel.",
         },
         {
-          title: "Owner",
-          company: "Single's Bar",
-          period: "2019 — Present",
-          description: "50% owner of a bar in Puerto Barrios, Guatemala. Operational management, digital marketing, and development of singlesbar.net with Astro and Tailwind.",
+          title: "Web Developer",
+          company: "XYZ Network Inc",
+          period: "Jan 2014 — Sep 2015",
+          description:
+            "High-traffic LAMP/WordPress delivery for brands including Star Media and related media properties. Frontend and backend feature work under production load.",
         },
       ],
     },
     projects: {
-      title: "Projects",
+      title: "Featured Projects",
       viewDetails: "View details",
       hideDetails: "Hide details",
       github: "Github",
-      demo: "Demo",
+      demo: "Live site",
       items: [
         {
-          name: "agente-ia.dev",
-          description: "AI agents courses platform. Built with Next.js, Turso DB, and Lemon Squeezy for payments.",
-          tags: ["Next.js", "Turso", "Lemon Squeezy"],
-          github: null,
-          demo: "https://agente-ia.dev",
-          logo: null,
-        },
-        {
-          name: "gaminglab.dev",
-          description: "Browser games portal with 6 language support. Monetized with AdSense and validated for ads.",
-          tags: ["Next.js", "AdSense", "i18n"],
-          github: null,
-          demo: "https://gaminglab.dev",
-          logo: null,
-        },
-        {
           name: "calcufast.com",
-          description: "Online calculators suite. Built with Next.js for performance and SEO.",
-          tags: ["Next.js", "Calculators", "SEO"],
+          description:
+            "Suite of fast, SEO-optimized online calculators. Built with Next.js for performance and organic search growth.",
+          tags: ["Next.js", "TypeScript", "SEO"],
           github: null,
           demo: "https://calcufast.com",
           logo: null,
         },
         {
+          name: "gaminglab.dev",
+          description:
+            "Browser games portal with 6-language internationalization. Monetized with AdSense and validated for ads.",
+          tags: ["Next.js", "i18n", "AdSense"],
+          github: null,
+          demo: "https://gaminglab.dev",
+          logo: null,
+        },
+        {
           name: "singlesbar.net",
-          description: "Single's Bar website. Built with Astro and Tailwind CSS for maximum speed.",
+          description:
+            "Website for Single's Bar, Puerto Barrios. Built with Astro and Tailwind CSS for maximum speed.",
           tags: ["Astro", "Tailwind"],
           github: null,
           demo: "https://singlesbar.net",
           logo: null,
         },
         {
-          name: "mundo.com",
-          description: "News and curiosities portal with high Latin American traffic. WordPress optimized for high user load.",
-          tags: ["WordPress", "PHP", "High Traffic"],
+          name: "agente-ia.dev",
+          description:
+            "AI agents course platform. Built with Next.js, Turso DB, and Lemon Squeezy for payments.",
+          tags: ["Next.js", "Turso", "AI"],
           github: null,
-          demo: "https://mundo.com",
-          logo: "https://www.mundo.com/public/img/logox2.png",
-        },
-        {
-          name: "noticias.com",
-          description: "World news aggregator with 24/7 updated content. High traffic platform with recurring users.",
-          tags: ["WordPress", "PHP", "News"],
-          github: null,
-          demo: "https://noticias.com",
-          logo: "https://ecdn4.wn.com/or/assets/assets/wn/img/logo.png",
-        },
-        {
-          name: "starmedia.com",
-          description: "News and entertainment portal. WordPress with high Latin American traffic and multiple content categories.",
-          tags: ["WordPress", "PHP", "Entertainment"],
-          github: null,
-          demo: "https://starmedia.com",
-          logo: null,
-        },
-        {
-          name: "honduras.com",
-          description: "Honduras informational portal with high traffic load. WordPress optimized for performance and recurring users.",
-          tags: ["WordPress", "PHP", "High Traffic"],
-          github: null,
-          demo: "https://honduras.com",
+          demo: "https://agente-ia.dev",
           logo: null,
         },
       ],
@@ -244,6 +100,108 @@ export const translations = {
     },
     footer: {
       builtWith: "Built with Next.js + Tailwind",
+      copyright: "© 2026 Marco Lee",
+    },
+  },
+  es: {
+    hero: {
+      name: "Marco Lee",
+      title: "Ingeniero Full-Stack Senior",
+      stack: "Laravel · React/Next.js · WordPress · IA Aplicada",
+      bio: "Ingeniero full-stack senior con más de 12 años construyendo plataformas web en producción — desde portales WordPress de alto tráfico con millones de usuarios en Latinoamérica hasta productos modernos con Laravel y React/Next.js. Lidero equipos, soy dueño de la arquitectura de punta a punta y construyo funciones de IA aplicada (agentes, RAG) que resuelven problemas reales de negocio.",
+      location: "Guatemala (UTC-6) · Inglés C1 · Remoto",
+      contact: "Puedes contactarme aquí:",
+      copied: "Copiado",
+    },
+    github: {
+      title: "Contribuciones en GitHub",
+    },
+    experience: {
+      title: "Experiencia",
+      present: "Presente",
+      viewMore: "Ver más",
+      viewLess: "Ver menos",
+      jobs: [
+        {
+          title: "Coordinador de Tecnología y Desarrollo / Tech Lead",
+          company: "Guatemala.com",
+          period: "Jun 2020 — Mar 2026",
+          description:
+            "Lideré arquitectura y entrega de plataformas de contenido de alto tráfico (5M+ usuarios/mes) en AWS auto-escalable. Migración hacia WordPress headless + NestJS + Next.js, sistemas de ads, rendimiento y mentoring. Flujos de ingeniería asistidos por IA. 100% remoto.",
+        },
+        {
+          title: "Desarrollador Full-Stack",
+          company: "Guatemala.com",
+          period: "Sep 2015 — Jun 2020",
+          description:
+            "Frontends React/JavaScript y APIs REST con Laravel para propiedades multi-marca. Entrega web + móvil híbrido, sistemas LAMP/WordPress de alto tráfico y shipping continuo a escala media.",
+        },
+        {
+          title: "Fundador e Ingeniero de Producto",
+          company: "Productos Independientes",
+          period: "2018 — Presente",
+          description:
+            "Diseño, construyo y opero mi portafolio de productos web — calcufast.com, gaminglab.dev, singlesbar.net, agente-ia.dev — con SEO, juegos browser (i18n 6 idiomas) y sistemas de IA aplicada. Ciclo completo: Next.js/Laravel, AdSense, AWS/Vercel.",
+        },
+        {
+          title: "Desarrollador Web",
+          company: "XYZ Network Inc",
+          period: "Ene 2014 — Sep 2015",
+          description:
+            "Entrega LAMP/WordPress de alto tráfico para marcas como Star Media y propiedades relacionadas. Frontend y backend en producción.",
+        },
+      ],
+    },
+    projects: {
+      title: "Proyectos Destacados",
+      viewDetails: "Ver detalles",
+      hideDetails: "Ocultar detalles",
+      github: "Github",
+      demo: "Sitio en vivo",
+      items: [
+        {
+          name: "calcufast.com",
+          description:
+            "Suite de calculadoras online rápidas y optimizadas para SEO. Construida con Next.js para rendimiento y crecimiento orgánico.",
+          tags: ["Next.js", "TypeScript", "SEO"],
+          github: null,
+          demo: "https://calcufast.com",
+          logo: null,
+        },
+        {
+          name: "gaminglab.dev",
+          description:
+            "Portal de juegos de navegador con internacionalización en 6 idiomas. Monetizado con AdSense y validado para anuncios.",
+          tags: ["Next.js", "i18n", "AdSense"],
+          github: null,
+          demo: "https://gaminglab.dev",
+          logo: null,
+        },
+        {
+          name: "singlesbar.net",
+          description:
+            "Sitio web del Single's Bar, Puerto Barrios. Construido con Astro y Tailwind CSS para máxima velocidad.",
+          tags: ["Astro", "Tailwind"],
+          github: null,
+          demo: "https://singlesbar.net",
+          logo: null,
+        },
+        {
+          name: "agente-ia.dev",
+          description:
+            "Plataforma de cursos sobre agentes de IA. Construida con Next.js, Turso DB y Lemon Squeezy para pagos.",
+          tags: ["Next.js", "Turso", "IA"],
+          github: null,
+          demo: "https://agente-ia.dev",
+          logo: null,
+        },
+      ],
+    },
+    skills: {
+      title: "Habilidades y Herramientas",
+    },
+    footer: {
+      builtWith: "Construido con Next.js + Tailwind",
       copyright: "© 2026 Marco Lee",
     },
   },

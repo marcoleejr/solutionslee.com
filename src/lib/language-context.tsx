@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, createContext, useContext, ReactNode } from "react";
+import { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import { translations, Lang } from "@/lib/translations";
 
 interface LanguageContextType {
   lang: Lang;
-  t: typeof translations.es;
+  t: typeof translations.en;
   toggle: () => void;
   setLang: (lang: Lang) => void;
 }
@@ -13,9 +13,26 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("es");
+  // SSR + first client paint must match to avoid hydration mismatch.
+  const [lang, setLangState] = useState<Lang>("en");
   const t = translations[lang];
-  const toggle = () => setLang(lang === "es" ? "en" : "es");
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem("lang");
+    if (saved === "es" || saved === "en") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration-safe localStorage restore
+      setLangState(saved);
+    }
+    document.documentElement.lang = saved === "es" || saved === "en" ? saved : "en";
+  }, []);
+
+  const setLang = (next: Lang) => {
+    setLangState(next);
+    window.localStorage.setItem("lang", next);
+    document.documentElement.lang = next;
+  };
+
+  const toggle = () => setLang(lang === "en" ? "es" : "en");
 
   return (
     <LanguageContext.Provider value={{ lang, t, toggle, setLang }}>
