@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface SectionHeadingProps {
   title: string;
@@ -8,12 +8,14 @@ interface SectionHeadingProps {
 }
 
 export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2, margin: "0px" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className="mb-6 sm:mb-8"
     >
       <h3 className="text-xl sm:text-2xl font-semibold text-foreground flex items-center gap-3">

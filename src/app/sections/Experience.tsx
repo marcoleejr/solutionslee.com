@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Briefcase, Rocket } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
@@ -14,15 +14,16 @@ interface Job {
 }
 
 function TimelineItem({ job, index, isLast }: { job: Job; index: number; isLast: boolean }) {
+  const reduceMotion = useReducedMotion();
   const isFounder = job.company.toLowerCase().includes("independ");
   const Icon = isFounder ? Rocket : Briefcase;
 
   return (
     <motion.li
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2, margin: "0px" }}
+      transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.08 }}
       className="relative flex gap-4 sm:gap-5"
     >
       {/* Timeline rail */}

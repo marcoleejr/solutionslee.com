@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -17,14 +17,15 @@ interface Project {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
   const monogram = project.name.charAt(0).toUpperCase();
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2, margin: "0px" }}
+      transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.05 }}
       className="group relative rounded-xl border border-border bg-surface p-4 sm:p-6 transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_8px_30px_color-mix(in_srgb,var(--accent)_12%,transparent)] flex flex-col"
     >
       <div className="flex items-start gap-3 mb-3 sm:mb-4">

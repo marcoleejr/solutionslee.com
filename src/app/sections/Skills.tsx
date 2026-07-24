@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Code2,
   FileCode,
@@ -74,6 +74,7 @@ const skillGroups: { key: CategoryKey; skills: { name: string; icon: LucideIcon 
 
 export function Skills() {
   const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
 
   return (
     <section id="skills" className="py-10 sm:py-16">
@@ -82,10 +83,10 @@ export function Skills() {
         {skillGroups.map((group, groupIndex) => (
           <motion.div
             key={group.key}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: groupIndex * 0.05 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2, margin: "0px" }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: groupIndex * 0.05 }}
           >
             <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted mb-2.5 sm:mb-3">
               {t.skills.categories[group.key]}
