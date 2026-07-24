@@ -49,9 +49,9 @@ export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background px-3 overflow-hidden"
         >
-          <div className="font-mono text-xs sm:text-sm md:text-base text-accent">
+          <div className="font-mono text-[10px] leading-tight sm:text-sm md:text-base text-accent max-w-full overflow-x-auto">
             {lines.map((line, i) => (
               <motion.div
                 key={i}

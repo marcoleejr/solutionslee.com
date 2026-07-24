@@ -42,10 +42,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <Folder className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
           </div>
         )}
-        <h4 className="text-base sm:text-lg font-semibold text-foreground">{project.name}</h4>
+        <h4 className="text-base sm:text-lg font-semibold text-foreground min-w-0 break-words">{project.name}</h4>
       </div>
 
-      <p className="text-xs sm:text-sm text-muted leading-relaxed mb-3 sm:mb-4">{project.description}</p>
+      <p className="text-xs sm:text-sm text-muted leading-relaxed mb-3 sm:mb-4 break-words">{project.description}</p>
 
       <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
         {project.tags.map((tag) => (
