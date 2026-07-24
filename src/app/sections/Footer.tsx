@@ -1,17 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, MessageSquare, Mail } from "lucide-react";
+import { Mail, ArrowUp } from "lucide-react";
+import { GitHubLogo, LinkedInLogo } from "@/components/icons";
 import { useLanguage } from "@/lib/language-context";
+import { getEmail } from "@/lib/email";
 
 const socialLinks = [
-  { icon: Globe, label: "GitHub", href: "https://github.com/marcoleejr" },
-  { icon: MessageSquare, label: "LinkedIn", href: "https://linkedin.com/in/marcoleejr" },
-  { icon: Mail, label: "Email", href: "mailto:marco@solutionslee.com" },
+  { icon: GitHubLogo, label: "GitHub", href: "https://github.com/marcoleejr" },
+  { icon: LinkedInLogo, label: "LinkedIn", href: "https://linkedin.com/in/marcoleejr" },
 ];
 
 export function Footer() {
   const { t } = useLanguage();
+
+  const handleEmail = () => {
+    const email = getEmail();
+    if (email) window.location.href = `mailto:${email}`;
+  };
 
   return (
     <motion.footer
@@ -19,25 +25,41 @@ export function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="py-16 border-t border-border"
+      className="py-12 sm:py-16 border-t border-border"
     >
       <div className="flex flex-col items-center gap-6">
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           {socialLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200"
+              className="p-2.5 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200 text-muted hover:text-foreground"
               aria-label={link.label}
             >
-              <link.icon className="w-4 h-4 text-muted hover:text-foreground transition-colors" />
+              <link.icon />
             </a>
           ))}
+          <button
+            onClick={handleEmail}
+            className="p-2.5 rounded-lg border border-border hover:border-accent hover:bg-surface transition-all duration-200"
+            aria-label="Email"
+          >
+            <Mail className="w-4 h-4 text-muted" />
+          </button>
         </div>
-        <p className="text-sm text-muted">{t.footer.builtWith}</p>
-        <p className="text-sm text-muted">{t.footer.copyright}</p>
+        <div className="flex flex-col items-center gap-1 text-center">
+          <p className="text-sm text-muted">{t.footer.builtWith}</p>
+          <p className="text-sm text-muted">{t.footer.copyright}</p>
+        </div>
+        <a
+          href="#top"
+          className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors"
+        >
+          <ArrowUp className="w-3.5 h-3.5" />
+          {t.footer.backToTop}
+        </a>
       </div>
     </motion.footer>
   );

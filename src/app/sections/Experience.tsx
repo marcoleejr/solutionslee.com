@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
+import { Briefcase, Rocket } from "lucide-react";
+import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
 
 interface Job {
@@ -10,64 +10,60 @@ interface Job {
   company: string;
   period: string;
   description: string;
+  tags: string[];
 }
 
-function ExperienceCard({ job, index }: { job: Job; index: number }) {
-  const [expanded, setExpanded] = useState(false);
-  const { t } = useLanguage();
+function TimelineItem({ job, index, isLast }: { job: Job; index: number; isLast: boolean }) {
+  const isFounder = job.company.toLowerCase().includes("independ");
+  const Icon = isFounder ? Rocket : Briefcase;
 
   return (
-    <motion.div
+    <motion.li
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="rounded-xl border border-border bg-surface p-4 sm:p-6 hover:border-accent transition-colors duration-300"
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="relative flex gap-4 sm:gap-5"
     >
-      <div className="flex items-start gap-3 sm:gap-4">
-        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface border border-border flex items-center justify-center shrink-0">
-          <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+      {/* Timeline rail */}
+      <div className="flex flex-col items-center shrink-0">
+        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-surface border border-border flex items-center justify-center shadow-sm z-10">
+          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
         </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex flex-col gap-1 sm:gap-2">
+        {!isLast && (
+          <div aria-hidden className="w-px flex-1 bg-gradient-to-b from-border via-border to-transparent mt-1" />
+        )}
+      </div>
+
+      <div className={`flex-1 min-w-0 ${isLast ? "" : "pb-8 sm:pb-10"}`}>
+        <div className="rounded-xl border border-border bg-surface p-4 sm:p-6 hover:border-accent transition-colors duration-300">
+          <div className="flex flex-col gap-1">
+            <span className="text-xs sm:text-sm font-medium text-accent tabular-nums">
+              {job.period}
+            </span>
             <h4 className="text-base sm:text-lg font-semibold text-foreground leading-snug break-words">
               {job.title}
             </h4>
             <p className="text-sm text-muted break-words">{job.company}</p>
-            <span className="text-xs sm:text-sm text-muted">{job.period}</span>
           </div>
 
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="mt-3 sm:mt-4 inline-flex items-center gap-1 min-h-11 text-sm text-accent hover:text-accent-hover transition-colors"
-          >
-            {expanded ? t.experience.viewLess : t.experience.viewMore}
-            <motion.span
-              animate={{ rotate: expanded ? 180 : 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <ChevronDown className="w-4 h-4" />
-            </motion.span>
-          </button>
+          <p className="mt-3 text-sm text-muted leading-relaxed break-words">
+            {job.description}
+          </p>
 
-          <AnimatePresence>
-            {expanded && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
+          <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
+            {job.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs font-medium bg-background border border-border text-muted"
               >
-                <p className="mt-3 sm:mt-4 text-sm text-muted leading-relaxed break-words">
-                  {job.description}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-    </motion.div>
+    </motion.li>
   );
 }
 
@@ -75,25 +71,18 @@ export function Experience() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-10 sm:py-16">
-      <motion.h3
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-        className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-foreground"
-      >
-        {t.experience.title}
-      </motion.h3>
-      <div className="flex flex-col gap-3 sm:gap-4">
+    <section id="experience" className="py-10 sm:py-16">
+      <SectionHeading title={t.experience.title} subtitle={t.experience.subtitle} />
+      <ol className="flex flex-col">
         {t.experience.jobs.map((job, index) => (
-          <ExperienceCard
+          <TimelineItem
             key={`${job.company}-${job.period}-${job.title}`}
             job={job}
             index={index}
+            isLast={index === t.experience.jobs.length - 1}
           />
         ))}
-      </div>
+      </ol>
     </section>
   );
 }

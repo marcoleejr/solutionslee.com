@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useMounted } from "@/lib/use-mounted";
 
 // Figlet-style "Marco" + "Lee" — correct single backslashes, compact width.
@@ -19,8 +19,9 @@ const ASCII_ART = [
   "|_____\\___|\\___|             ",
 ] as const;
 
-export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
+export function AsciiIntro({ onComplete }: { onComplete?: () => void }) {
   const mounted = useMounted();
+  const reduceMotion = useReducedMotion();
   const [visible, setVisible] = useState(true);
   const [lines, setLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
@@ -44,8 +45,15 @@ export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
     return () => window.removeEventListener("resize", fit);
   }, [mounted, lines.length]);
 
+  const skipIntro = reduceMotion === true;
+
+  // Respect reduced motion: the overlay never renders, so just notify completion.
   useEffect(() => {
-    if (!mounted) return;
+    if (mounted && skipIntro) onComplete?.();
+  }, [mounted, skipIntro, onComplete]);
+
+  useEffect(() => {
+    if (!mounted || skipIntro) return;
     if (currentLine < ASCII_ART.length) {
       const timer = setTimeout(() => {
         setLines((prev) => [...prev, ASCII_ART[currentLine]]);
@@ -55,12 +63,17 @@ export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
     }
     const timer = setTimeout(() => {
       setVisible(false);
-      onComplete();
+      onComplete?.();
     }, 900);
     return () => clearTimeout(timer);
-  }, [mounted, currentLine, onComplete]);
+  }, [mounted, skipIntro, currentLine, onComplete]);
 
-  if (!mounted) return null;
+  const skip = () => {
+    setVisible(false);
+    onComplete?.();
+  };
+
+  if (!mounted || skipIntro) return null;
 
   return (
     <AnimatePresence>
@@ -69,8 +82,9 @@ export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background px-4 overflow-hidden"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background px-4 overflow-hidden cursor-pointer"
           aria-label="Marco Lee"
+          onClick={skip}
         >
           {/* Hidden full art for measuring natural width at base font size */}
           <pre
@@ -105,6 +119,16 @@ export function AsciiIntro({ onComplete }: { onComplete: () => void }) {
                 />
               )}
             </pre>
+            {currentLine >= ASCII_ART.length && (
+              <motion.p
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-4 text-center font-mono text-xs sm:text-sm text-muted tracking-widest uppercase"
+              >
+                Senior Full-Stack Engineer
+              </motion.p>
+            )}
           </div>
         </motion.div>
       )}

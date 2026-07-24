@@ -17,60 +17,90 @@ import {
   Smartphone,
   BrainCircuit,
   Bot,
+  type LucideIcon,
 } from "lucide-react";
+import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
 
-const skills = [
-  { name: "Laravel", icon: Hexagon },
-  { name: "PHP", icon: Code2 },
-  { name: "React", icon: Layout },
-  { name: "Next.js", icon: Globe },
-  { name: "TypeScript", icon: FileCode },
-  { name: "JavaScript", icon: Code2 },
-  { name: "React Native", icon: Smartphone },
-  { name: "Ionic", icon: Smartphone },
-  { name: "WordPress (Headless)", icon: Globe },
-  { name: "NestJS", icon: Layers },
-  { name: "Node.js", icon: Server },
-  { name: "AWS", icon: Cloud },
-  { name: "AI Agents / RAG", icon: BrainCircuit },
-  { name: "LLM Tooling", icon: Bot },
-  { name: "PostgreSQL", icon: Database },
-  { name: "MySQL", icon: Database },
-  { name: "Docker", icon: Container },
-  { name: "Tailwind CSS", icon: Palette },
-  { name: "GitHub", icon: GitBranch },
-  { name: "Vercel", icon: Cloud },
+type CategoryKey = "frontend" | "backend" | "mobile" | "ai" | "infra";
+
+const skillGroups: { key: CategoryKey; skills: { name: string; icon: LucideIcon }[] }[] = [
+  {
+    key: "frontend",
+    skills: [
+      { name: "React", icon: Layout },
+      { name: "Next.js", icon: Globe },
+      { name: "TypeScript", icon: FileCode },
+      { name: "JavaScript", icon: Code2 },
+      { name: "Tailwind CSS", icon: Palette },
+    ],
+  },
+  {
+    key: "backend",
+    skills: [
+      { name: "Laravel", icon: Hexagon },
+      { name: "PHP", icon: Code2 },
+      { name: "NestJS", icon: Layers },
+      { name: "Node.js", icon: Server },
+      { name: "PostgreSQL", icon: Database },
+      { name: "MySQL", icon: Database },
+    ],
+  },
+  {
+    key: "ai",
+    skills: [
+      { name: "AI Agents / RAG", icon: BrainCircuit },
+      { name: "LLM Tooling", icon: Bot },
+    ],
+  },
+  {
+    key: "mobile",
+    skills: [
+      { name: "React Native", icon: Smartphone },
+      { name: "Ionic", icon: Smartphone },
+    ],
+  },
+  {
+    key: "infra",
+    skills: [
+      { name: "WordPress (Headless)", icon: Globe },
+      { name: "AWS", icon: Cloud },
+      { name: "Docker", icon: Container },
+      { name: "Vercel", icon: Cloud },
+      { name: "GitHub", icon: GitBranch },
+    ],
+  },
 ];
 
 export function Skills() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-10 sm:py-16">
-      <motion.h3
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-        className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-foreground"
-      >
-        {t.skills.title}
-      </motion.h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3">
-        {skills.map((skill, index) => (
+    <section id="skills" className="py-10 sm:py-16">
+      <SectionHeading title={t.skills.title} subtitle={t.skills.subtitle} />
+      <div className="flex flex-col gap-5 sm:gap-6">
+        {skillGroups.map((group, groupIndex) => (
           <motion.div
-            key={skill.name}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            key={group.key}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.3, delay: index * 0.02 }}
-            className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg border border-border bg-surface hover:border-accent transition-colors duration-200 min-w-0"
+            transition={{ duration: 0.4, delay: groupIndex * 0.05 }}
           >
-            <skill.icon className="w-4 h-4 text-accent shrink-0" />
-            <span className="text-xs sm:text-sm font-medium text-foreground leading-snug break-words">
-              {skill.name}
-            </span>
+            <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted mb-2.5 sm:mb-3">
+              {t.skills.categories[group.key]}
+            </h4>
+            <div className="flex flex-wrap gap-2 sm:gap-2.5">
+              {group.skills.map((skill) => (
+                <span
+                  key={skill.name}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-border bg-surface hover:border-accent hover:-translate-y-0.5 transition-all duration-200 text-xs sm:text-sm font-medium text-foreground"
+                >
+                  <skill.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent shrink-0" />
+                  {skill.name}
+                </span>
+              ))}
+            </div>
           </motion.div>
         ))}
       </div>
