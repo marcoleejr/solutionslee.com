@@ -1,4 +1,31 @@
-# Scroll-reveal flicker fix — solutionslee.com
+# Professional polish — solutionslee.com
+
+Branch: `cursor/professional-polish-7702`
+Date: 2026-07-25
+
+## Changes
+- Project cards: real screenshots of the 4 live products (captured from
+  production sites, `public/projects/*.jpg`, lazy-loaded thumbnails)
+- Hero avatar: uses `public/profile.jpg` when present, falls back to ML
+  monogram (photo file pending from owner)
+- Email anti-spam hardening: address no longer present in served HTML;
+  decoded client-side only (hero + contact buttons)
+- Scrollspy: active section highlighted in navbar
+- Custom bilingual 404 page (`app/not-found.tsx`)
+- Generated favicon + Apple icon (`app/icon.tsx`, `app/apple-icon.tsx`)
+- Google Analytics 4 via `@next/third-parties`, activated by
+  `NEXT_PUBLIC_GA_ID` env var (no ID → no script)
+- Removed unused create-next-app template SVGs from `public/`
+
+## QA
+- Lint + build green (routes incl. /icon, /apple-icon)
+- Served HTML contains no email address; decodes after hydration
+- 4 thumbnails render; scrollspy PASS; 404 PASS; no GA script without env
+- Mobile 390px: no horizontal overflow
+
+---
+
+# Scroll-reveal flicker fix — solutionslee.com (merged in #6)
 
 Branch: `cursor/fix-scroll-reveal-flicker-7702`
 Date: 2026-07-25
