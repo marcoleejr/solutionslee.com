@@ -118,10 +118,20 @@ export function Hero() {
           </div>
         </div>
 
+        {/* Value proposition */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-base sm:text-lg md:text-xl font-medium text-foreground leading-snug w-full max-w-2xl break-words"
+        >
+          {t.hero.tagline}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
           className="flex items-start gap-1.5 text-xs sm:text-sm text-muted break-words"
         >
           <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5" />

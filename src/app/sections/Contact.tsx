@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Check, Clock } from "lucide-react";
+import { Mail, Check, Clock, Zap } from "lucide-react";
 import { LinkedInLogo } from "@/components/icons";
 import { useLanguage } from "@/lib/language-context";
 import { getEmail } from "@/lib/email";
@@ -70,10 +70,16 @@ export function Contact() {
           </a>
         </div>
 
-        <p className="mt-6 inline-flex items-center gap-1.5 text-xs sm:text-sm text-muted">
-          <Clock className="w-3.5 h-3.5 shrink-0" />
-          {t.contactSection.note}
-        </p>
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm text-muted">
+          <p className="inline-flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5 shrink-0 text-accent" />
+            {t.contactSection.reply}
+          </p>
+          <p className="inline-flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5 shrink-0" />
+            {t.contactSection.note}
+          </p>
+        </div>
       </div>
     </section>
   );
