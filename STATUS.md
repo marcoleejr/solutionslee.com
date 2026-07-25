@@ -1,3 +1,32 @@
+# Selling improvements — solutionslee.com
+
+Branch: `cursor/professional-polish-7702` (same PR, round 2)
+Date: 2026-07-25
+
+## Changes
+- Hero: added value-proposition tagline ("I build and run web platforms
+  serving 5M+ users a month — and lead the teams behind them"), trimmed bio
+- Experience: descriptions rewritten as achievement bullets (only
+  verifiable facts); Guatemala.com is now a clickable link
+- New Case Study section: challenge → what I did → outcome for the
+  Guatemala.com re-architecture and 5M+ users scale story
+- Projects: reordered (agente-ia.dev first — AI leads), added one
+  accent-colored impact line per card (e.g. "80+ games in 6 languages,
+  AdSense-approved")
+- New "What you get when you hire me" section: end-to-end ownership,
+  team leadership, applied AI (3 cards before Contact)
+- Stats: replaced "6 languages shipped" with "100% remote since 2020"
+- Contact: added "I reply within 24 hours" promise next to the UTC-6 note
+- GitHub calendar decision: kept — real profile shows 177 active days in
+  the last year (healthy green graph)
+- Skipped: testimonials (need real quotes from the owner — cannot invent)
+
+## QA
+- Lint + build green; 13/13 browser checks PASS (EN + ES), no console errors
+- agente-ia.dev renders first; company link present; mobile 390px no overflow
+
+---
+
 # Professional polish — solutionslee.com
 
 Branch: `cursor/professional-polish-7702`
