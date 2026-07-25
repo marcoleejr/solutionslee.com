@@ -12,6 +12,7 @@ interface Project {
   github: string | null;
   demo: string;
   logo: string | null;
+  image: string | null;
 }
 
 function ProjectCard({ project }: { project: Project }) {
@@ -19,7 +20,20 @@ function ProjectCard({ project }: { project: Project }) {
   const monogram = project.name.charAt(0).toUpperCase();
 
   return (
-    <div className="reveal-up group relative rounded-xl border border-border bg-surface p-4 sm:p-6 transition-[border-color,box-shadow] duration-300 hover:border-accent hover:shadow-[0_8px_30px_color-mix(in_srgb,var(--accent)_12%,transparent)] flex flex-col">
+    <div className="reveal-up group relative rounded-xl border border-border bg-surface overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-accent hover:shadow-[0_8px_30px_color-mix(in_srgb,var(--accent)_12%,transparent)] flex flex-col">
+      {project.image && (
+        <div className="relative aspect-video w-full overflow-hidden border-b border-border bg-background">
+          <Image
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            width={640}
+            height={360}
+            unoptimized
+            className="object-cover object-top w-full h-full transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
+      <div className="p-4 sm:p-6 flex flex-col flex-1">
       <div className="flex items-start gap-3 mb-3 sm:mb-4">
         {project.logo ? (
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg overflow-hidden bg-white shrink-0 flex items-center justify-center">
@@ -83,6 +97,7 @@ function ProjectCard({ project }: { project: Project }) {
           {t.projects.demo}
           <ArrowUpRight className="w-3 h-3" />
         </a>
+      </div>
       </div>
     </div>
   );

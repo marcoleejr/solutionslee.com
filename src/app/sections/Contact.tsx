@@ -5,9 +5,11 @@ import { Mail, Check, Clock } from "lucide-react";
 import { LinkedInLogo } from "@/components/icons";
 import { useLanguage } from "@/lib/language-context";
 import { getEmail } from "@/lib/email";
+import { useMounted } from "@/lib/use-mounted";
 
 export function Contact() {
   const { t } = useLanguage();
+  const mounted = useMounted();
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -48,8 +50,13 @@ export function Contact() {
             ) : (
               <Mail className="w-4 h-4 shrink-0" />
             )}
+            {/* Address is decoded client-side only, so it never appears in the served HTML */}
             <span className="truncate">
-              {copied ? t.contactSection.copied : t.contactSection.emailButton}
+              {copied
+                ? t.contactSection.copied
+                : mounted
+                  ? getEmail()
+                  : t.contactSection.emailButton}
             </span>
           </button>
           <a

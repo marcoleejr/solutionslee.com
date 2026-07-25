@@ -19,6 +19,7 @@ export const translations = {
       ctaSecondary: "View LinkedIn",
       contact: "You can reach me here:",
       copied: "Copied",
+      emailLabel: "Copy email",
       stats: [
         { value: 12, suffix: "+", label: "Years of experience" },
         { value: 5, suffix: "M+", label: "Monthly users served" },
@@ -83,6 +84,7 @@ export const translations = {
           github: null,
           demo: "https://calcufast.com",
           logo: null,
+          image: "/projects/calcufast.jpg",
         },
         {
           name: "gaminglab.dev",
@@ -92,6 +94,7 @@ export const translations = {
           github: null,
           demo: "https://gaminglab.dev",
           logo: null,
+          image: "/projects/gaminglab.jpg",
         },
         {
           name: "singlesbar.net",
@@ -101,6 +104,7 @@ export const translations = {
           github: null,
           demo: "https://singlesbar.net",
           logo: null,
+          image: "/projects/singlesbar.jpg",
         },
         {
           name: "agente-ia.dev",
@@ -110,6 +114,7 @@ export const translations = {
           github: null,
           demo: "https://agente-ia.dev",
           logo: null,
+          image: "/projects/agente-ia.jpg",
         },
       ],
     },
@@ -129,10 +134,15 @@ export const translations = {
       title: "Let's build something that ships.",
       subtitle:
         "I'm open to senior full-stack and tech lead roles — remote, English or Spanish. If you need someone who owns architecture end to end and delivers under real traffic, let's talk.",
-      emailButton: "marco@solutionslee.com",
+      emailButton: "Copy my email",
       copied: "Copied to clipboard",
       linkedin: "Or connect on LinkedIn",
       note: "Based in Guatemala (UTC-6) — full overlap with US time zones.",
+    },
+    notFound: {
+      title: "Page not found",
+      message: "The page you're looking for doesn't exist or was moved.",
+      back: "Back to home",
     },
     footer: {
       builtWith: "Built with Next.js + Tailwind",
@@ -158,6 +168,7 @@ export const translations = {
       ctaSecondary: "Ver LinkedIn",
       contact: "Puedes contactarme aquí:",
       copied: "Copiado",
+      emailLabel: "Copiar correo",
       stats: [
         { value: 12, suffix: "+", label: "Años de experiencia" },
         { value: 5, suffix: "M+", label: "Usuarios mensuales servidos" },
@@ -222,6 +233,7 @@ export const translations = {
           github: null,
           demo: "https://calcufast.com",
           logo: null,
+          image: "/projects/calcufast.jpg",
         },
         {
           name: "gaminglab.dev",
@@ -231,6 +243,7 @@ export const translations = {
           github: null,
           demo: "https://gaminglab.dev",
           logo: null,
+          image: "/projects/gaminglab.jpg",
         },
         {
           name: "singlesbar.net",
@@ -240,6 +253,7 @@ export const translations = {
           github: null,
           demo: "https://singlesbar.net",
           logo: null,
+          image: "/projects/singlesbar.jpg",
         },
         {
           name: "agente-ia.dev",
@@ -249,6 +263,7 @@ export const translations = {
           github: null,
           demo: "https://agente-ia.dev",
           logo: null,
+          image: "/projects/agente-ia.jpg",
         },
       ],
     },
@@ -268,10 +283,15 @@ export const translations = {
       title: "Construyamos algo que llegue a producción.",
       subtitle:
         "Estoy abierto a roles senior full-stack y tech lead — remotos, en inglés o español. Si necesitas a alguien que sea dueño de la arquitectura de punta a punta y entregue bajo tráfico real, hablemos.",
-      emailButton: "marco@solutionslee.com",
+      emailButton: "Copiar mi correo",
       copied: "Copiado al portapapeles",
       linkedin: "O conecta en LinkedIn",
       note: "Desde Guatemala (UTC-6) — solapamiento completo con zonas horarias de EE. UU.",
+    },
+    notFound: {
+      title: "Página no encontrada",
+      message: "La página que buscas no existe o fue movida.",
+      back: "Volver al inicio",
     },
     footer: {
       builtWith: "Construido con Next.js + Tailwind",
