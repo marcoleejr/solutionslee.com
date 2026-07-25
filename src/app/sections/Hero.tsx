@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { MapPin, Copy, Check, ArrowRight } from "lucide-react";
 import { GitHubLogo, LinkedInLogo } from "@/components/icons";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { useLanguage } from "@/lib/language-context";
 import { getEmail } from "@/lib/email";
+import { useMounted } from "@/lib/use-mounted";
 
 const socialLinks = [
   { icon: GitHubLogo, label: "GitHub", href: "https://github.com/marcoleejr" },
@@ -15,7 +17,10 @@ const socialLinks = [
 
 export function Hero() {
   const { t } = useLanguage();
+  const mounted = useMounted();
   const [copied, setCopied] = useState(false);
+  // Falls back to the ML monogram until public/profile.jpg exists.
+  const [photoOk, setPhotoOk] = useState(true);
 
   const handleCopyEmail = () => {
     const email = getEmail();
@@ -68,7 +73,20 @@ export function Hero() {
           >
             <div aria-hidden className="absolute -inset-1 rounded-full avatar-ring" />
             <div className="relative w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-surface border-2 border-border flex items-center justify-center overflow-hidden">
-              <span className="text-xl sm:text-3xl md:text-4xl font-bold text-accent">ML</span>
+              {photoOk ? (
+                <Image
+                  src="/profile.jpg"
+                  alt="Marco Lee"
+                  width={112}
+                  height={112}
+                  priority
+                  unoptimized
+                  className="object-cover w-full h-full"
+                  onError={() => setPhotoOk(false)}
+                />
+              ) : (
+                <span className="text-xl sm:text-3xl md:text-4xl font-bold text-accent">ML</span>
+              )}
             </div>
           </motion.div>
 
@@ -143,7 +161,10 @@ export function Hero() {
             ) : (
               <Copy className="w-4 h-4 shrink-0" />
             )}
-            <span className="truncate">{copied ? t.hero.copied : "marco@solutionslee.com"}</span>
+            {/* Address is decoded client-side only, so it never appears in the served HTML */}
+            <span className="truncate">
+              {copied ? t.hero.copied : mounted ? getEmail() : t.hero.emailLabel}
+            </span>
           </button>
           {socialLinks.map((link) => (
             <a

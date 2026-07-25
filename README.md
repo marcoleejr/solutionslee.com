@@ -17,8 +17,16 @@ Personal portfolio of Marco Lee, Senior Full-Stack Engineer. A fast, bilingual (
 - **Sticky navbar** — with scroll progress bar and section anchors
 - **Animated hero** — availability badge, count-up stats, decorative dot grid + accent glow
 - **Experience timeline** — vertical rail with per-role tech tags
-- **SEO** — Open Graph image generated at build time (`next/og`), JSON-LD `Person` schema, sitemap, robots, canonical
-- **Anti-spam email** — address is base64-obfuscated and only decoded client-side
+- **SEO** — Open Graph image generated at build time (`next/og`), JSON-LD `Person` schema, sitemap, robots, canonical, generated favicon/apple icon
+- **Anti-spam email** — address is base64-obfuscated and only rendered client-side; it never appears in the served HTML
+- **Project screenshots** — real captures of each live product in the cards
+- **Scrollspy navbar** — active section highlighted while scrolling
+- **Custom 404** — bilingual, on-brand not-found page
+- **Google Analytics 4** — enabled by setting the `NEXT_PUBLIC_GA_ID` env var (G-XXXXXXX); no ID, no script
+
+## Profile photo
+
+The hero avatar automatically shows `public/profile.jpg` when it exists (square crop recommended, ~640×640). Until then it falls back to the "ML" monogram.
 
 ## Development
 
