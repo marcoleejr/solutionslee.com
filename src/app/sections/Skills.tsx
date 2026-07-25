@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Code2,
   FileCode,
@@ -79,14 +78,8 @@ export function Skills() {
     <section id="skills" className="py-10 sm:py-16">
       <SectionHeading title={t.skills.title} subtitle={t.skills.subtitle} />
       <div className="flex flex-col gap-5 sm:gap-6">
-        {skillGroups.map((group, groupIndex) => (
-          <motion.div
-            key={group.key}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: groupIndex * 0.05 }}
-          >
+        {skillGroups.map((group) => (
+          <div key={group.key} className="reveal-up">
             <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted mb-2.5 sm:mb-3">
               {t.skills.categories[group.key]}
             </h4>
@@ -101,7 +94,7 @@ export function Skills() {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

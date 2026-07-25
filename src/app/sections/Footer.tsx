@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Mail, ArrowUp } from "lucide-react";
 import { GitHubLogo, LinkedInLogo } from "@/components/icons";
 import { useLanguage } from "@/lib/language-context";
@@ -20,13 +19,7 @@ export function Footer() {
   };
 
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="py-12 sm:py-16 border-t border-border"
-    >
+    <footer className="reveal-up py-12 sm:py-16 border-t border-border">
       <div className="flex flex-col items-center gap-6">
         <div className="flex gap-3">
           {socialLinks.map((link) => (
@@ -61,6 +54,6 @@ export function Footer() {
           {t.footer.backToTop}
         </a>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

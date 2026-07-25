@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, Check, Clock } from "lucide-react";
 import { LinkedInLogo } from "@/components/icons";
 import { useLanguage } from "@/lib/language-context";
@@ -22,13 +21,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-12 sm:py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.5 }}
-        className="relative overflow-hidden rounded-2xl border border-border bg-surface p-6 sm:p-10 md:p-12 text-center"
-      >
+      <div className="reveal-up relative overflow-hidden rounded-2xl border border-border bg-surface p-6 sm:p-10 md:p-12 text-center">
         {/* Accent glow inside the card */}
         <div
           aria-hidden
@@ -74,7 +67,7 @@ export function Contact() {
           <Clock className="w-3.5 h-3.5 shrink-0" />
           {t.contactSection.note}
         </p>
-      </motion.div>
+      </div>
     </section>
   );
 }

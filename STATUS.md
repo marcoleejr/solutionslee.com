@@ -1,4 +1,25 @@
-# Premium redesign — solutionslee.com
+# Scroll-reveal flicker fix — solutionslee.com
+
+Branch: `cursor/fix-scroll-reveal-flicker-7702`
+Date: 2026-07-25
+
+## Fix
+- Replaced all IntersectionObserver-based `whileInView` reveals with CSS
+  scroll-driven animations (`animation-timeline: view()`, range `entry 0%`
+  → `entry 70%`, 24px slide + fade, `.reveal-up` in globals.css).
+- Reveal state is a pure function of scroll position (compositor-driven),
+  so the mobile flash/jump (IO callbacks lagging during momentum scroll)
+  is impossible by construction. Unsupported browsers/reduced-motion show
+  content directly.
+- Project card hover lift swapped for border+shadow highlight (the scroll
+  animation owns `transform`).
+- Audit (Chrome, 390px, instant step-scroll, next-frame sampling): PASS —
+  no element ever visible in a hidden state; entry gradient 0 → 0.93 →
+  1.00; contact card + footer reach opacity 1.00 at max scroll.
+
+---
+
+# Premium redesign — solutionslee.com (merged in #4)
 
 Branch: `cursor/premium-portfolio-redesign-7702`
 Date: 2026-07-24
