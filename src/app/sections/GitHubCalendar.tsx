@@ -6,6 +6,7 @@ import { GitHubCalendar } from "react-github-calendar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
 import { useMounted } from "@/lib/use-mounted";
+import { revealViewport } from "@/lib/motion";
 
 function useIsNarrow() {
   // SSR-safe: default true-ish small values only after mount via matchMedia in parent
@@ -49,10 +50,10 @@ export function GitHubCalendarSection() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5 }}
+      viewport={revealViewport}
+      transition={{ duration: 0.4 }}
       className="py-10 sm:py-16"
     >
       <SectionHeading title={t.github.title} subtitle={t.github.subtitle} />

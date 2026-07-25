@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
+import { revealViewport } from "@/lib/motion";
 
 type CategoryKey = "frontend" | "backend" | "mobile" | "ai" | "infra";
 
@@ -82,10 +83,10 @@ export function Skills() {
         {skillGroups.map((group, groupIndex) => (
           <motion.div
             key={group.key}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: groupIndex * 0.05 }}
+            viewport={revealViewport}
+            transition={{ duration: 0.35, delay: Math.min(groupIndex * 0.05, 0.1) }}
           >
             <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted mb-2.5 sm:mb-3">
               {t.skills.categories[group.key]}
