@@ -1,11 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Mail, ArrowUp } from "lucide-react";
 import { GitHubLogo, LinkedInLogo } from "@/components/icons";
 import { useLanguage } from "@/lib/language-context";
 import { getEmail } from "@/lib/email";
-import { revealViewport } from "@/lib/motion";
 
 const socialLinks = [
   { icon: GitHubLogo, label: "GitHub", href: "https://github.com/marcoleejr" },
@@ -21,13 +19,7 @@ export function Footer() {
   };
 
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={revealViewport}
-      transition={{ duration: 0.4 }}
-      className="py-12 sm:py-16 border-t border-border"
-    >
+    <footer className="reveal-up py-12 sm:py-16 border-t border-border">
       <div className="flex flex-col items-center gap-6">
         <div className="flex gap-3">
           {socialLinks.map((link) => (
@@ -62,6 +54,6 @@ export function Footer() {
           {t.footer.backToTop}
         </a>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

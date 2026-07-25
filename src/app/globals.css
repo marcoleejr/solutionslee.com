@@ -54,6 +54,36 @@ main[id] {
   outline-offset: 2px;
 }
 
+/*
+ * Scroll-driven reveal: progress is a pure function of the element's
+ * position in the viewport (runs on the compositor), so content can never
+ * sit visible in a hidden state — unlike IntersectionObserver callbacks,
+ * which lag during momentum scrolling on mobile and caused a blank
+ * flash + jump. Unsupported browsers simply show the content.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal-up {
+      animation-name: reveal-up;
+      animation-timing-function: ease-out;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Hero decorative dot grid, fading out toward the bottom */
 .hero-grid {
   background-image: radial-gradient(

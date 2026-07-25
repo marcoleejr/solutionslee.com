@@ -1,10 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Briefcase, Rocket } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
-import { revealViewport } from "@/lib/motion";
 
 interface Job {
   title: string;
@@ -14,18 +12,12 @@ interface Job {
   tags: string[];
 }
 
-function TimelineItem({ job, index, isLast }: { job: Job; index: number; isLast: boolean }) {
+function TimelineItem({ job, isLast }: { job: Job; isLast: boolean }) {
   const isFounder = job.company.toLowerCase().includes("independ");
   const Icon = isFounder ? Rocket : Briefcase;
 
   return (
-    <motion.li
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={revealViewport}
-      transition={{ duration: 0.35, delay: Math.min(index * 0.05, 0.1) }}
-      className="relative flex gap-4 sm:gap-5"
-    >
+    <li className="reveal-up relative flex gap-4 sm:gap-5">
       {/* Timeline rail */}
       <div className="flex flex-col items-center shrink-0">
         <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-surface border border-border flex items-center justify-center shadow-sm z-10">
@@ -64,7 +56,7 @@ function TimelineItem({ job, index, isLast }: { job: Job; index: number; isLast:
           </div>
         </div>
       </div>
-    </motion.li>
+    </li>
   );
 }
 
@@ -79,7 +71,6 @@ export function Experience() {
           <TimelineItem
             key={`${job.company}-${job.period}-${job.title}`}
             job={job}
-            index={index}
             isLast={index === t.experience.jobs.length - 1}
           />
         ))}

@@ -1,12 +1,10 @@
 "use client";
 
 import { useMemo } from "react";
-import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
 import { useMounted } from "@/lib/use-mounted";
-import { revealViewport } from "@/lib/motion";
 
 function useIsNarrow() {
   // SSR-safe: default true-ish small values only after mount via matchMedia in parent
@@ -49,21 +47,15 @@ export function GitHubCalendarSection() {
   );
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={revealViewport}
-      transition={{ duration: 0.4 }}
-      className="py-10 sm:py-16"
-    >
+    <section className="py-10 sm:py-16">
       <SectionHeading title={t.github.title} subtitle={t.github.subtitle} />
-      <div className="gh-calendar-wrap rounded-xl border border-border p-3 sm:p-6 bg-surface min-h-[120px] sm:min-h-[160px]">
+      <div className="reveal-up gh-calendar-wrap rounded-xl border border-border p-3 sm:p-6 bg-surface min-h-[120px] sm:min-h-[160px]">
         {mounted ? (
           <GitHubCalendar {...calendarProps} />
         ) : (
           <div className="h-24 sm:h-28 animate-pulse rounded-md bg-border/40" aria-hidden />
         )}
       </div>
-    </motion.section>
+    </section>
   );
 }
