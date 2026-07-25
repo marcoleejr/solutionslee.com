@@ -1,14 +1,15 @@
 "use client";
 
-import { Briefcase, Rocket } from "lucide-react";
+import { Briefcase, Rocket, ChevronRight } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
 
 interface Job {
   title: string;
   company: string;
+  companyUrl: string | null;
   period: string;
-  description: string;
+  achievements: string[];
   tags: string[];
 }
 
@@ -37,12 +38,31 @@ function TimelineItem({ job, isLast }: { job: Job; isLast: boolean }) {
             <h4 className="text-base sm:text-lg font-semibold text-foreground leading-snug break-words">
               {job.title}
             </h4>
-            <p className="text-sm text-muted break-words">{job.company}</p>
+            {job.companyUrl ? (
+              <a
+                href={job.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-accent transition-colors break-words w-fit underline-offset-4 hover:underline"
+              >
+                {job.company}
+              </a>
+            ) : (
+              <p className="text-sm text-muted break-words">{job.company}</p>
+            )}
           </div>
 
-          <p className="mt-3 text-sm text-muted leading-relaxed break-words">
-            {job.description}
-          </p>
+          <ul className="mt-3 space-y-1.5">
+            {job.achievements.map((achievement) => (
+              <li
+                key={achievement}
+                className="flex items-start gap-1.5 text-sm text-muted leading-relaxed break-words"
+              >
+                <ChevronRight aria-hidden className="w-3.5 h-3.5 text-accent shrink-0 mt-1" />
+                {achievement}
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
             {job.tags.map((tag) => (

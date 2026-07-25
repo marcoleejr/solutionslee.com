@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
@@ -8,6 +8,7 @@ import { useLanguage } from "@/lib/language-context";
 interface Project {
   name: string;
   description: string;
+  impact: string;
   tags: string[];
   github: string | null;
   demo: string;
@@ -62,6 +63,12 @@ function ProjectCard({ project }: { project: Project }) {
 
       <p className="text-xs sm:text-sm text-muted leading-relaxed mb-3 sm:mb-4 break-words flex-1">
         {project.description}
+      </p>
+
+      {/* Impact line */}
+      <p className="flex items-start gap-1.5 text-[11px] sm:text-xs font-medium text-accent mb-3 sm:mb-4 break-words">
+        <Sparkles aria-hidden className="w-3.5 h-3.5 shrink-0 mt-px" />
+        {project.impact}
       </p>
 
       <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
