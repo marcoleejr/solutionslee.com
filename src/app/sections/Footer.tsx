@@ -5,6 +5,7 @@ import { Mail, ArrowUp } from "lucide-react";
 import { GitHubLogo, LinkedInLogo } from "@/components/icons";
 import { useLanguage } from "@/lib/language-context";
 import { getEmail } from "@/lib/email";
+import { revealViewport } from "@/lib/motion";
 
 const socialLinks = [
   { icon: GitHubLogo, label: "GitHub", href: "https://github.com/marcoleejr" },
@@ -23,8 +24,8 @@ export function Footer() {
     <motion.footer
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      viewport={revealViewport}
+      transition={{ duration: 0.4 }}
       className="py-12 sm:py-16 border-t border-border"
     >
       <div className="flex flex-col items-center gap-6">

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Briefcase, Rocket } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
+import { revealViewport } from "@/lib/motion";
 
 interface Job {
   title: string;
@@ -19,10 +20,10 @@ function TimelineItem({ job, index, isLast }: { job: Job; index: number; isLast:
 
   return (
     <motion.li
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      viewport={revealViewport}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.05, 0.1) }}
       className="relative flex gap-4 sm:gap-5"
     >
       {/* Timeline rail */}
