@@ -1,6 +1,6 @@
 # solutionslee.com — Marco Lee's Portfolio
 
-Personal portfolio of Marco Lee, Senior Full-Stack Engineer. A fast, bilingual (EN/ES), single-page site built to convert recruiters and clients: terminal-style ASCII intro, animated hero with live stat counters, experience timeline, featured products, and a clear contact CTA.
+Personal portfolio of Marco Lee, Senior Backend Engineer — 12+ years building production APIs, platforms, and architecture at scale. A fast, bilingual (EN/ES), single-page site built to convert recruiters and clients: terminal-style ASCII intro, animated hero with live stat counters, experience timeline, featured products, and a clear contact CTA.
 
 ## Stack
 
