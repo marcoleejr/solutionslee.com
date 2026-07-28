@@ -25,16 +25,6 @@ type CategoryKey = "frontend" | "backend" | "mobile" | "ai" | "infra";
 
 const skillGroups: { key: CategoryKey; skills: { name: string; icon: LucideIcon }[] }[] = [
   {
-    key: "frontend",
-    skills: [
-      { name: "React", icon: Layout },
-      { name: "Next.js", icon: Globe },
-      { name: "TypeScript", icon: FileCode },
-      { name: "JavaScript", icon: Code2 },
-      { name: "Tailwind CSS", icon: Palette },
-    ],
-  },
-  {
     key: "backend",
     skills: [
       { name: "Laravel", icon: Hexagon },
@@ -46,10 +36,23 @@ const skillGroups: { key: CategoryKey; skills: { name: string; icon: LucideIcon 
     ],
   },
   {
-    key: "ai",
+    key: "infra",
     skills: [
-      { name: "AI Agents / RAG", icon: BrainCircuit },
-      { name: "LLM Tooling", icon: Bot },
+      { name: "WordPress (Headless)", icon: Globe },
+      { name: "AWS", icon: Cloud },
+      { name: "Docker", icon: Container },
+      { name: "Vercel", icon: Cloud },
+      { name: "GitHub", icon: GitBranch },
+    ],
+  },
+  {
+    key: "frontend",
+    skills: [
+      { name: "React", icon: Layout },
+      { name: "Next.js", icon: Globe },
+      { name: "TypeScript", icon: FileCode },
+      { name: "JavaScript", icon: Code2 },
+      { name: "Tailwind CSS", icon: Palette },
     ],
   },
   {
@@ -60,13 +63,10 @@ const skillGroups: { key: CategoryKey; skills: { name: string; icon: LucideIcon 
     ],
   },
   {
-    key: "infra",
+    key: "ai",
     skills: [
-      { name: "WordPress (Headless)", icon: Globe },
-      { name: "AWS", icon: Cloud },
-      { name: "Docker", icon: Container },
-      { name: "Vercel", icon: Cloud },
-      { name: "GitHub", icon: GitBranch },
+      { name: "AI-Accelerated Engineering", icon: BrainCircuit },
+      { name: "Claude · Codex · Gemini CLI", icon: Bot },
     ],
   },
 ];

@@ -10,12 +10,12 @@ export const translations = {
     },
     hero: {
       name: "Marco Lee",
-      title: "Senior Full-Stack Engineer",
-      stack: "Laravel · React/Next.js · WordPress · Applied AI",
-      availability: "Available for senior remote roles",
+      title: "Senior Backend Engineer",
+      stack: "Laravel · NestJS · Node.js · MySQL/PostgreSQL · AWS",
+      availability: "Available for senior backend remote roles",
       tagline:
-        "I build and run web platforms serving 5M+ users a month — and lead the teams behind them.",
-      bio: "12+ years shipping production systems across Latin America — from high-traffic media portals to modern Laravel and React/Next.js products. I own architecture end to end, mentor engineers, and build applied AI features (agents, RAG) that solve real business problems.",
+        "I build and run the backends behind web platforms serving 5M+ users a month — and lead the teams that ship them.",
+      bio: "12+ years building backend systems across Latin America — high-traffic media portals, Laravel and NestJS REST APIs, and auto-scaling AWS infrastructure. I own architecture end to end: APIs, data models, performance, and scalability. React and Next.js support the work; AI-accelerated tooling (Claude, Codex, Gemini, CLI agents) speeds it up.",
       location: "Guatemala (UTC-6) · English C1 · Remote",
       ctaPrimary: "Get in touch",
       ctaSecondary: "View LinkedIn",
@@ -45,11 +45,11 @@ export const translations = {
           period: "Jun 2020 — Mar 2026",
           achievements: [
             "Scaled multi-brand content platforms to 5M+ monthly users on auto-scaling AWS.",
-            "Drove the migration from monolithic WordPress to headless WordPress + NestJS + Next.js.",
-            "Owned ad systems, performance, and architecture across the network.",
+            "Drove the backend migration from monolithic WordPress to headless WordPress + NestJS APIs.",
+            "Owned ad systems, performance, and backend architecture across the network.",
             "Mentored the engineering team and introduced AI-assisted development workflows — fully remote.",
           ],
-          tags: ["AWS", "Headless WordPress", "NestJS", "Next.js", "Team Leadership"],
+          tags: ["AWS", "Headless WordPress", "NestJS", "Node.js", "Team Leadership"],
         },
         {
           title: "Full-Stack Developer",
@@ -57,11 +57,11 @@ export const translations = {
           companyUrl: "https://www.guatemala.com",
           period: "Sep 2015 — Jun 2020",
           achievements: [
-            "Built React/JavaScript frontends and Laravel REST APIs for multi-brand media properties.",
-            "Shipped web + hybrid mobile products on high-traffic LAMP/WordPress systems.",
+            "Built Laravel REST APIs and data models for multi-brand media properties, with React/JavaScript frontends on top.",
+            "Shipped web + hybrid mobile products on high-traffic LAMP/WordPress systems at scale.",
             "Delivered continuously at media scale for five years.",
           ],
-          tags: ["Laravel", "React", "REST APIs", "Hybrid Mobile"],
+          tags: ["Laravel", "REST APIs", "MySQL", "Hybrid Mobile"],
         },
         {
           title: "Founder & Product Engineer",
@@ -90,8 +90,8 @@ export const translations = {
     },
     caseStudy: {
       title: "Case Study",
-      subtitle: "How I approach scale — one real example.",
-      heading: "Scaling Guatemala.com to 5M+ monthly users",
+      subtitle: "How I approach backend architecture at scale — one real example.",
+      heading: "Scaling Guatemala.com's platform to 5M+ monthly users",
       blocks: [
         {
           label: "The challenge",
@@ -99,7 +99,7 @@ export const translations = {
         },
         {
           label: "What I did",
-          text: "Led the re-architecture to headless WordPress + NestJS APIs + Next.js frontends on auto-scaling AWS. Owned ad systems and performance, planned the migration path, and mentored the team while introducing AI-assisted engineering workflows.",
+          text: "Led the backend re-architecture to headless WordPress + NestJS APIs on auto-scaling AWS, with Next.js frontends consuming them. Owned ad systems and performance, planned the migration path, and mentored the team while introducing AI-assisted engineering workflows.",
         },
         {
           label: "The outcome",
@@ -161,7 +161,7 @@ export const translations = {
     },
     skills: {
       title: "Skills & Tools",
-      subtitle: "The stack I use to take products from idea to production.",
+      subtitle: "Backend-first: the stack I use to design, build, and run systems in production.",
       categories: {
         frontend: "Frontend",
         backend: "Backend & APIs",
@@ -175,19 +175,19 @@ export const translations = {
       subtitle: "Beyond the stack — how I actually add value.",
       items: [
         {
-          title: "End-to-end ownership",
+          title: "Architecture ownership",
           description:
-            "From architecture to production: I design it, build it, ship it, and operate it. You get outcomes, not tickets.",
+            "From data models and APIs to production infrastructure: I design it, build it, ship it, and operate it. You get outcomes, not tickets.",
         },
         {
           title: "Team leadership",
           description:
-            "Years leading and mentoring remote engineering teams — clear async communication in English (C1) or Spanish.",
+            "Years leading and mentoring remote engineering teams on backend and platform work — clear async communication in English (C1) or Spanish.",
         },
         {
-          title: "Applied AI, for real",
+          title: "AI-accelerated delivery",
           description:
-            "Agents and RAG shipped in production products and daily team workflows — not just demos.",
+            "Claude, Codex, Gemini, and CLI agents wired into daily engineering workflows — real speed on production work, not demos.",
         },
       ],
     },
@@ -195,7 +195,7 @@ export const translations = {
       eyebrow: "Contact",
       title: "Let's build something that ships.",
       subtitle:
-        "I'm open to senior full-stack and tech lead roles — remote, English or Spanish. If you need someone who owns architecture end to end and delivers under real traffic, let's talk.",
+        "I'm open to senior backend, platform, and tech lead roles — remote, English or Spanish. If you need someone who owns architecture end to end and delivers under real traffic, let's talk.",
       emailButton: "Copy my email",
       copied: "Copied to clipboard",
       linkedin: "Or connect on LinkedIn",
@@ -222,12 +222,12 @@ export const translations = {
     },
     hero: {
       name: "Marco Lee",
-      title: "Ingeniero Full-Stack Senior",
-      stack: "Laravel · React/Next.js · WordPress · IA Aplicada",
-      availability: "Disponible para roles senior remotos",
+      title: "Ingeniero Backend Senior",
+      stack: "Laravel · NestJS · Node.js · MySQL/PostgreSQL · AWS",
+      availability: "Disponible para roles senior de backend, remoto",
       tagline:
-        "Construyo y opero plataformas web que sirven a 5M+ de usuarios al mes — y lidero los equipos detrás de ellas.",
-      bio: "Más de 12 años entregando sistemas en producción en Latinoamérica — desde portales de medios de alto tráfico hasta productos modernos con Laravel y React/Next.js. Soy dueño de la arquitectura de punta a punta, hago mentoring a ingenieros y construyo funciones de IA aplicada (agentes, RAG) que resuelven problemas reales de negocio.",
+        "Construyo y opero el backend de plataformas web que sirven a 5M+ usuarios al mes — y lidero los equipos que las entregan.",
+      bio: "Más de 12 años construyendo sistemas backend en Latinoamérica — portales de medios de alto tráfico, APIs REST con Laravel y NestJS, e infraestructura auto-escalable en AWS. Soy dueño de la arquitectura de punta a punta: APIs, modelos de datos, rendimiento y escalabilidad. React y Next.js apoyan el trabajo; las herramientas de IA (Claude, Codex, Gemini, agentes CLI) lo aceleran.",
       location: "Guatemala (UTC-6) · Inglés C1 · Remoto",
       ctaPrimary: "Contáctame",
       ctaSecondary: "Ver LinkedIn",
@@ -257,11 +257,11 @@ export const translations = {
           period: "Jun 2020 — Mar 2026",
           achievements: [
             "Escalé plataformas de contenido multi-marca a 5M+ usuarios mensuales en AWS auto-escalable.",
-            "Lideré la migración de WordPress monolítico a WordPress headless + NestJS + Next.js.",
-            "Fui dueño de los sistemas de ads, el rendimiento y la arquitectura de toda la red.",
+            "Lideré la migración de backend de WordPress monolítico a WordPress headless + APIs NestJS.",
+            "Fui dueño de los sistemas de ads, el rendimiento y la arquitectura backend de toda la red.",
             "Hice mentoring al equipo e introduje flujos de desarrollo asistidos por IA — 100% remoto.",
           ],
-          tags: ["AWS", "WordPress Headless", "NestJS", "Next.js", "Liderazgo"],
+          tags: ["AWS", "WordPress Headless", "NestJS", "Node.js", "Liderazgo"],
         },
         {
           title: "Desarrollador Full-Stack",
@@ -269,11 +269,11 @@ export const translations = {
           companyUrl: "https://www.guatemala.com",
           period: "Sep 2015 — Jun 2020",
           achievements: [
-            "Construí frontends React/JavaScript y APIs REST con Laravel para propiedades multi-marca.",
+            "Construí APIs REST y modelos de datos con Laravel para propiedades multi-marca, con frontends React/JavaScript encima.",
             "Entregué productos web + móvil híbrido sobre sistemas LAMP/WordPress de alto tráfico.",
-            "Shipping continuo a escala de medios durante cinco años.",
+            "Entrega continua a escala de medios durante cinco años.",
           ],
-          tags: ["Laravel", "React", "APIs REST", "Móvil híbrido"],
+          tags: ["Laravel", "APIs REST", "MySQL", "Móvil híbrido"],
         },
         {
           title: "Fundador e Ingeniero de Producto",
@@ -302,8 +302,8 @@ export const translations = {
     },
     caseStudy: {
       title: "Caso de Estudio",
-      subtitle: "Cómo abordo la escala — un ejemplo real.",
-      heading: "Escalando Guatemala.com a 5M+ usuarios mensuales",
+      subtitle: "Cómo abordo la arquitectura backend a escala — un ejemplo real.",
+      heading: "Escalando la plataforma de Guatemala.com a 5M+ usuarios mensuales",
       blocks: [
         {
           label: "El reto",
@@ -311,7 +311,7 @@ export const translations = {
         },
         {
           label: "Qué hice",
-          text: "Lideré la re-arquitectura hacia WordPress headless + APIs NestJS + frontends Next.js en AWS auto-escalable. Fui dueño de los sistemas de ads y el rendimiento, planifiqué la ruta de migración e hice mentoring al equipo mientras introducía flujos de ingeniería asistidos por IA.",
+          text: "Lideré la re-arquitectura backend hacia WordPress headless + APIs NestJS en AWS auto-escalable, con frontends Next.js consumiéndolas. Fui dueño de los sistemas de ads y el rendimiento, planifiqué la ruta de migración e hice mentoring al equipo mientras introducía flujos de ingeniería asistidos por IA.",
         },
         {
           label: "El resultado",
@@ -373,7 +373,7 @@ export const translations = {
     },
     skills: {
       title: "Habilidades y Herramientas",
-      subtitle: "El stack con el que llevo productos de la idea a producción.",
+      subtitle: "Backend primero: el stack con el que diseño, construyo y opero sistemas en producción.",
       categories: {
         frontend: "Frontend",
         backend: "Backend y APIs",
@@ -387,19 +387,19 @@ export const translations = {
       subtitle: "Más allá del stack — cómo agrego valor realmente.",
       items: [
         {
-          title: "Ownership de punta a punta",
+          title: "Ownership de arquitectura",
           description:
-            "De la arquitectura a producción: lo diseño, lo construyo, lo publico y lo opero. Obtienes resultados, no tickets.",
+            "De los modelos de datos y las APIs a la infraestructura en producción: lo diseño, lo construyo, lo publico y lo opero. Obtienes resultados, no tickets.",
         },
         {
           title: "Liderazgo de equipos",
           description:
-            "Años liderando y haciendo mentoring a equipos remotos — comunicación asíncrona clara en inglés (C1) o español.",
+            "Años liderando y haciendo mentoring a equipos remotos en trabajo de backend y plataforma — comunicación asíncrona clara en inglés (C1) o español.",
         },
         {
-          title: "IA aplicada, de verdad",
+          title: "Entrega acelerada con IA",
           description:
-            "Agentes y RAG en productos en producción y en el flujo diario del equipo — no solo demos.",
+            "Claude, Codex, Gemini y agentes CLI integrados al flujo diario de ingeniería — velocidad real en trabajo de producción, no demos.",
         },
       ],
     },
@@ -407,7 +407,7 @@ export const translations = {
       eyebrow: "Contacto",
       title: "Construyamos algo que llegue a producción.",
       subtitle:
-        "Estoy abierto a roles senior full-stack y tech lead — remotos, en inglés o español. Si necesitas a alguien que sea dueño de la arquitectura de punta a punta y entregue bajo tráfico real, hablemos.",
+        "Estoy abierto a roles senior de backend, plataforma y tech lead — remotos, en inglés o español. Si necesitas a alguien que sea dueño de la arquitectura de punta a punta y entregue bajo tráfico real, hablemos.",
       emailButton: "Copiar mi correo",
       copied: "Copiado al portapapeles",
       linkedin: "O conecta en LinkedIn",

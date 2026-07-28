@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Marco Lee — Senior Full-Stack Engineer";
+export const alt = "Marco Lee — Senior Backend Engineer";
 export const size = {
   width: 1200,
   height: 630,
@@ -86,7 +86,7 @@ export default function OpenGraphImage() {
             color: "#a1a1aa",
           }}
         >
-          Senior Full-Stack Engineer
+          Senior Backend Engineer
         </div>
         <div
           style={{
@@ -96,7 +96,7 @@ export default function OpenGraphImage() {
             fontWeight: 600,
           }}
         >
-          Laravel · React/Next.js · WordPress · Applied AI
+          Laravel · NestJS · Node.js · MySQL/PostgreSQL · AWS
         </div>
         <div
           style={{

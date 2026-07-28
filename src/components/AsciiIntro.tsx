@@ -126,7 +126,7 @@ export function AsciiIntro({ onComplete }: { onComplete?: () => void }) {
                 transition={{ duration: 0.3 }}
                 className="mt-4 text-center font-mono text-xs sm:text-sm text-muted tracking-widest uppercase"
               >
-                Senior Full-Stack Engineer
+                Senior Backend Engineer
               </motion.p>
             )}
           </div>
