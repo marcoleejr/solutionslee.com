@@ -1,3 +1,24 @@
+# Senior Backend repositioning — solutionslee.com
+
+Branch: `feat/senior-backend-positioning-20260727`
+Date: 2026-07-27
+
+## Changes
+- Identity: "Senior Full-Stack Engineer" → "Senior Backend Engineer" (ES: "Ingeniero Backend Senior") across hero, SEO title/description/keywords, Open Graph, Twitter card, JSON-LD jobTitle/knowsAbout, ASCII intro tagline, OG image, README
+- Hero: stack line → `Laravel · NestJS · Node.js · MySQL/PostgreSQL · AWS`; tagline/bio backend-led (APIs, data models, performance, scalability); React/Next.js framed as supporting skills
+- Experience: bullets re-angled backend/platform-first; tags re-weighted (Node.js, MySQL); Guatemala.com Tech Lead still ends Mar 2026 — never "Present"; historical "Full-Stack Developer" title kept
+- Case study: backend architecture angle (headless WordPress + NestJS APIs on auto-scaling AWS)
+- Skills: order now Backend & APIs → Cloud/CMS/Tooling → Frontend → Mobile → Applied AI; AI items renamed to honest tooling ("AI-Accelerated Engineering", "Claude · Codex · Gemini CLI"); bare "RAG" identity removed site-wide
+- Hire cards + Contact: open to senior backend / platform / tech lead remote roles (US hours)
+- LinkedIn Senior Backend copy package: `docs/swarm/linkedin-senior-backend-copy.{json,md}` (mirror at `~/.hermes/drafts/linkedin-senior-backend-20260727.json`)
+
+## QA
+- `pnpm lint` + `pnpm build` green
+- Browser screenshots (desktop 1440 + mobile 390: hero, experience, skills, contact) in `docs/swarm/qa/`
+- Hygiene grep: no VML; no Guatemala.com "Present"; Lead period ends Mar 2026; no bare ML/RAG identity
+
+---
+
 # Selling improvements — solutionslee.com
 
 Branch: `cursor/professional-polish-7702` (same PR, round 2)
